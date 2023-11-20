@@ -17,7 +17,7 @@ app.use(express.json());
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs', 'access.log'), { flags: 'a' })
 app.use(morgan('combined', { stream: accessLogStream }));
 
-app.get('/health', (req, res) => res.status(StatusCodes.OK));
+app.get('/health', (req, res) => res.status(StatusCodes.OK).json('is working'));
 app.use('/api', apiRouter);
 
 // ! REQUEST encountered some error. Thus catching the same.

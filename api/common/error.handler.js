@@ -17,9 +17,10 @@ function clientErrorHandler (err, req, res, next) {
 }
   
 
-function errorHandler (err, req, res) {
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-    res.json({ error: err })
+function errorHandler (err, req, res, next) {
+  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      error: "Internal server error",
+      data: err
+  })
 }
-
 module.exports = {logErrors, clientErrorHandler, errorHandler};
