@@ -13,6 +13,9 @@ npm install -g nodemon
 # copy and update your env variables.
 cp .env.example .env
 
+# run seeding command
+npm run seed
+
 # create required directories.
 mkdir -p api/logs
 touch api/logs/access.log
